@@ -32,7 +32,7 @@ namespace Api.Controllers
 
             //return countries;            
             
-            return ["Value1", "Value2"];
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
