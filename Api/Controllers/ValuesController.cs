@@ -20,16 +20,19 @@ namespace Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public List<Country> Get()
+        //public List<Country> Get()
+        public string[] Get()
         {
             //var countries = this._context.Country.ToList();
 
-            var business = CountryBusiness.Instance;
+            //var business = CountryBusiness.Instance;
 
-            var request = new GetAllCountriesRequest(this._context);
-            var countries = business.GetAllCountries(request);
+            //var request = new GetAllCountriesRequest(this._context);
+            //var countries = business.GetAllCountries(request);
 
-            return countries;            
+            //return countries;            
+            
+            return ["Value1", "Value2"];
         }
 
         // GET api/values/5
