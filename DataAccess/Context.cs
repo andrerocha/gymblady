@@ -37,7 +37,7 @@ namespace DataAccess
                 {
                     ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
                 }
-            ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
             }
         }
     }
