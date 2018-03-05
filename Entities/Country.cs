@@ -2,7 +2,7 @@
 
 namespace Entities
 {
-    public class Country
+    public class Country : BaseEntity
     {
         [Key]
         public int IdCountry { get; set; }

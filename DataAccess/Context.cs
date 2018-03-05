@@ -10,6 +10,7 @@ namespace DataAccess
         public Context(DbContextOptions<Context> options) : base(options) { }
 
         public DbSet<Country> Country { get; set; }
+        public DbSet<State> State { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {                       
@@ -31,13 +32,19 @@ namespace DataAccess
         private void AddAuitInfo()
         {
             var entries = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
             foreach (var entry in entries)
             {
-                if (entry.State == EntityState.Added)
+                switch (entry.State)
                 {
-                    ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                    case EntityState.Modified:
+                        ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                        break;
+
+                    case EntityState.Added:
+                        ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                        break;                    
                 }
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
             }
         }
     }

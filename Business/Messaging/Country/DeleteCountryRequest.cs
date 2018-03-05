@@ -1,6 +1,6 @@
 ﻿using DataAccess;
 
-namespace Business.Messaging
+namespace Business.Messaging.Country
 {
     public class DeleteCountryRequest : BaseRequest
     {

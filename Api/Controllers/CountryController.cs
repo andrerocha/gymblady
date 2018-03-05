@@ -1,5 +1,5 @@
 ﻿using Business;
-using Business.Messaging;
+using Business.Messaging.Country;
 using DataAccess;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -29,13 +29,18 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("api/Country/GetCountryById")]
-        public Country GetCountryById(int id)
+        public Country GetCountryById(int idCountry)
         {
-            var business = CountryBusiness.Instance;
-            var request = new GetCountryByIdRequest(this._context);
-            request.IdCountry = id;
+            Country country = null;
 
-            var country = business.GetCountryById(request);
+            if (idCountry > 0)
+            {
+                var business = CountryBusiness.Instance;
+                var request = new GetCountryByIdRequest(this._context);
+                request.IdCountry = idCountry;
+
+                country = business.GetCountryById(request);
+            }
 
             return country;
         }
@@ -44,11 +49,14 @@ namespace Api.Controllers
         [Route("api/Country/AddCountry")]
         public Country AddCountry([FromBody]Country country)
         {
-            var business = CountryBusiness.Instance;
-            var request = new AddCountryRequest(this._context);
-            request.Country = country;
+            if (country != null)
+            {
+                var business = CountryBusiness.Instance;
+                var request = new AddCountryRequest(this._context);
+                request.Country = country;
 
-            country = business.AddCountry(request);
+                country = business.AddCountry(request);
+            }
 
             return country;
         }
@@ -57,11 +65,14 @@ namespace Api.Controllers
         [Route("api/Country/UpdateCountry")]
         public Country UpdateCountry([FromBody]Country country)
         {
-            var business = CountryBusiness.Instance;
-            var request = new UpdateCountryRequest(this._context);
-            request.Country = country;
+            if (country != null)
+            {
+                var business = CountryBusiness.Instance;
+                var request = new UpdateCountryRequest(this._context);
+                request.Country = country;
 
-            country = business.UpdateCountry(request);
+                country = business.UpdateCountry(request);
+            }
 
             return country;
         }

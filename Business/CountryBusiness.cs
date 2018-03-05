@@ -1,4 +1,4 @@
-﻿using Business.Messaging;
+﻿using Business.Messaging.Country;
 using DataAccess;
 using Entities;
 using System.Collections.Generic;
@@ -9,48 +9,75 @@ namespace Business
     public class CountryBusiness : BaseBusiness<CountryBusiness>
     {
         public List<Country> GetAllCountries(GetAllCountriesRequest request)
-        {                      
-            var dataAccess = new CountryDataAccess(request.Context);
+        {
+            List<Country> countries = null;
 
-            var countriesQuery = dataAccess.GetAll();
+            if (request != null)
+            {
+                var dataAccess = new CountryDataAccess(request.Context);
 
-            return countriesQuery.ToList();
+                var countriesQuery = dataAccess.GetAll();
+
+                countries = countriesQuery.ToList();
+            }
+
+            return countries;
         }
 
         public Country GetCountryById(GetCountryByIdRequest request)
         {
-            var dataAccess = new CountryDataAccess(request.Context);
+            Country country = null;
 
-            var countryQuery = dataAccess.GetById(request.IdCountry);
+            if (request != null)
+            {
+                var dataAccess = new CountryDataAccess(request.Context);
 
-            return countryQuery.FirstOrDefault();
+                var countryQuery = dataAccess.GetById(request.IdCountry);
+
+                country = countryQuery.FirstOrDefault();
+            }
+
+            return country;
         }
 
         public Country AddCountry(AddCountryRequest request)
         {
-            var dataAccess = new CountryDataAccess(request.Context);
+            Country country = null;
 
-            var country = dataAccess.Add(request.Country);
+            if (request != null && request.Country != null)
+            {
+                var dataAccess = new CountryDataAccess(request.Context);
+
+                country = dataAccess.Add(request.Country);
+            }
 
             return country;
         }
 
         public Country UpdateCountry(UpdateCountryRequest request)
         {
-            var dataAccess = new CountryDataAccess(request.Context);
+            Country country = null;
 
-            var country = dataAccess.Update(request.Country);
+            if (request != null && request.Country != null)
+            {
+                var dataAccess = new CountryDataAccess(request.Context);
+
+                country = dataAccess.Update(request.Country);
+            }
 
             return country;
         }
 
         public void DeleteCountry(DeleteCountryRequest request)
         {
-            var dataAccess = new CountryDataAccess(request.Context);
+            if (request != null)
+            {
+                var dataAccess = new CountryDataAccess(request.Context);
 
-            var country = dataAccess.GetById(request.IdCountry);
+                var country = dataAccess.GetById(request.IdCountry);
 
-            dataAccess.Delete(country.FirstOrDefault());            
+                dataAccess.Delete(country.FirstOrDefault());
+            }
         }
     }
 }

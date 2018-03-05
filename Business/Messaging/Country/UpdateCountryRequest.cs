@@ -1,7 +1,6 @@
 ﻿using DataAccess;
-using Entities;
 
-namespace Business.Messaging
+namespace Business.Messaging.Country
 {
     public class UpdateCountryRequest : BaseRequest
     {
@@ -9,6 +8,6 @@ namespace Business.Messaging
         {
         }
 
-        public Country Country { get; set; }
+        public Entities.Country Country { get; set; }
     }
 }
