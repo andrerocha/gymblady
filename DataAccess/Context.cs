@@ -11,6 +11,7 @@ namespace DataAccess
 
         public DbSet<Country> Country { get; set; }
         public DbSet<State> State { get; set; }
+        public DbSet<City> City { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {                       
