@@ -1,6 +1,7 @@
 ﻿using Business.Messaging.Country;
 using DataAccess;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +19,8 @@ namespace Business
 
                 var citiesQuery = dataAccess.GetAll();
 
+                citiesQuery = citiesQuery.Include(c => c.State);
+
                 cities = citiesQuery.ToList();
             }
 
@@ -33,6 +36,8 @@ namespace Business
                 var dataAccess = new CityDataAccess(request.Context);
 
                 var cityQuery = dataAccess.GetById(request.IdCity);
+
+                cityQuery = cityQuery.Include(c => c.State);
 
                 city = cityQuery.FirstOrDefault();
             }

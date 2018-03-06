@@ -1,6 +1,7 @@
 ﻿using Business.Messaging.Country;
 using DataAccess;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,9 +15,11 @@ namespace Business
 
             if (request != null)
             {
-                var dataAccess = new StateDataAccess(request.Context);
+                var dataAccess = new StateDataAccess(request.Context);                
 
                 var statesQuery = dataAccess.GetAll();
+
+                statesQuery = statesQuery.Include(s => s.Country);
 
                 states = statesQuery.ToList();
             }
@@ -33,6 +36,8 @@ namespace Business
                 var dataAccess = new StateDataAccess(request.Context);
 
                 var stateQuery = dataAccess.GetById(request.IdState);
+
+                stateQuery = stateQuery.Include(s => s.Country);
 
                 state = stateQuery.FirstOrDefault();
             }
