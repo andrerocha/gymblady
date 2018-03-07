@@ -1,6 +1,6 @@
 ﻿using DataAccess;
 
-namespace Business.Messaging.Country
+namespace Business.Messaging.State
 {
     public class GetAllStatesRequest : BaseRequest
     {

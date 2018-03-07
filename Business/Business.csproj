@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Messaging\Academy\" />
+    <Folder Include="Messaging\City\" />
   </ItemGroup>
 
 </Project>

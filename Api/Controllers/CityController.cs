@@ -1,5 +1,5 @@
 ﻿using Business;
-using Business.Messaging.Country;
+using Business.Messaging.City;
 using DataAccess;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -7,21 +7,16 @@ using System.Collections.Generic;
 
 namespace Api.Controllers
 {
-    public class CityController : Controller
+    public class CityController : BaseController
     {
-        Context _context;
-
-        public CityController(Context context)
-        {
-            this._context = context;
-        }
+        public CityController(Context context) : base(context) { }
 
         [HttpGet]
         [Route("api/City/GetAllCities")]
         public List<City> GetAllCities()
         {
             var business = CityBusiness.Instance;
-            var request = new GetAllCitiesRequest(this._context);
+            var request = new GetAllCitiesRequest(this.Context);
             var cities = business.GetAllCities(request);
 
             return cities;
@@ -36,7 +31,7 @@ namespace Api.Controllers
             if (idCity > 0)
             {
                 var business = CityBusiness.Instance;
-                var request = new GetCityByIdRequest(this._context);
+                var request = new GetCityByIdRequest(this.Context);
                 request.IdCity = idCity;
 
                 city = business.GetCityById(request);
@@ -52,7 +47,7 @@ namespace Api.Controllers
             if (city != null)
             {
                 var business = CityBusiness.Instance;
-                var request = new AddCityRequest(this._context);
+                var request = new AddCityRequest(this.Context);
                 request.City = city;
 
                 city = business.AddCity(request);
@@ -68,7 +63,7 @@ namespace Api.Controllers
             if (city != null)
             {
                 var business = CityBusiness.Instance;
-                var request = new UpdateCityRequest(this._context);
+                var request = new UpdateCityRequest(this.Context);
                 request.City = city;
 
                 city = business.UpdateCity(request);
@@ -82,7 +77,7 @@ namespace Api.Controllers
         public void DeleteCity(int idCity)
         {
             var business = CityBusiness.Instance;
-            var request = new DeleteCityRequest(this._context);
+            var request = new DeleteCityRequest(this.Context);
             request.IdCity = idCity;
 
             business.DeleteCity(request);

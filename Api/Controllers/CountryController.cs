@@ -7,21 +7,16 @@ using System.Collections.Generic;
 
 namespace Api.Controllers
 {
-    public class CountryController : Controller
+    public class CountryController : BaseController
     {
-        Context _context;
-
-        public CountryController(Context context)
-        {
-            this._context = context;
-        }
+        public CountryController(Context context) : base(context) { }
 
         [HttpGet]
         [Route("api/Country/GetAllCountries")]
         public List<Country> GetAllCountries()
         {
             var business = CountryBusiness.Instance;
-            var request = new GetAllCountriesRequest(this._context);
+            var request = new GetAllCountriesRequest(this.Context);
             var countries = business.GetAllCountries(request);
 
             return countries;
@@ -36,7 +31,7 @@ namespace Api.Controllers
             if (idCountry > 0)
             {
                 var business = CountryBusiness.Instance;
-                var request = new GetCountryByIdRequest(this._context);
+                var request = new GetCountryByIdRequest(this.Context);
                 request.IdCountry = idCountry;
 
                 country = business.GetCountryById(request);
@@ -52,7 +47,7 @@ namespace Api.Controllers
             if (country != null)
             {
                 var business = CountryBusiness.Instance;
-                var request = new AddCountryRequest(this._context);
+                var request = new AddCountryRequest(this.Context);
                 request.Country = country;
 
                 country = business.AddCountry(request);
@@ -68,7 +63,7 @@ namespace Api.Controllers
             if (country != null)
             {
                 var business = CountryBusiness.Instance;
-                var request = new UpdateCountryRequest(this._context);
+                var request = new UpdateCountryRequest(this.Context);
                 request.Country = country;
 
                 country = business.UpdateCountry(request);
@@ -82,7 +77,7 @@ namespace Api.Controllers
         public void DeleteCountry(int idCountry)
         {
             var business = CountryBusiness.Instance;
-            var request = new DeleteCountryRequest(this._context);
+            var request = new DeleteCountryRequest(this.Context);
             request.IdCountry = idCountry;
 
             business.DeleteCountry(request);

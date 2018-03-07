@@ -1,5 +1,5 @@
 ﻿using Business;
-using Business.Messaging.Country;
+using Business.Messaging.State;
 using DataAccess;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -7,21 +7,16 @@ using System.Collections.Generic;
 
 namespace Api.Controllers
 {
-    public class StateController
+    public class StateController : BaseController
     {
-        Context _context;
-
-        public StateController(Context context)
-        {
-            this._context = context;
-        }
+        public StateController(Context context) : base(context) { }
 
         [HttpGet]
         [Route("api/State/GetAllStates")]
         public List<State> GetAllStates()
         {
             var business = StateBusiness.Instance;
-            var request = new GetAllStatesRequest(this._context);
+            var request = new GetAllStatesRequest(this.Context);
             var states = business.GetAllStates(request);
 
             return states;
@@ -32,7 +27,7 @@ namespace Api.Controllers
         public State GetStateById(int idState)
         {
             var business = StateBusiness.Instance;
-            var request = new GetStateByIdRequest(this._context);
+            var request = new GetStateByIdRequest(this.Context);
             request.IdState = idState;
 
             var country = business.GetStateById(request);
@@ -47,7 +42,7 @@ namespace Api.Controllers
             if (state != null)
             {
                 var business = StateBusiness.Instance;
-                var request = new AddStateRequest(this._context);
+                var request = new AddStateRequest(this.Context);
                 request.State = state;
 
                 state = business.AddState(request);
@@ -63,7 +58,7 @@ namespace Api.Controllers
             if (state != null)
             {
                 var business = StateBusiness.Instance;
-                var request = new UpdateStateRequest(this._context);
+                var request = new UpdateStateRequest(this.Context);
                 request.State = state;
 
                 state = business.UpdateState(request);
@@ -77,7 +72,7 @@ namespace Api.Controllers
         public void DeleteState(int idState)
         {
             var business = StateBusiness.Instance;
-            var request = new DeleteStateRequest(this._context);
+            var request = new DeleteStateRequest(this.Context);
             request.IdState = idState;
 
             business.DeleteState(request);
