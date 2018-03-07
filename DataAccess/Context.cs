@@ -9,6 +9,14 @@ namespace DataAccess
     {
         public Context(DbContextOptions<Context> options) : base(options) { }
 
+        public DbSet<Team> Team { get; set; }
+        public DbSet<Academy> Academy { get; set; }
+        public DbSet<AcademyAddress> AcademyAddress { get; set; }
+        public DbSet<AcademyPhone> AcademyPhone { get; set; }
+        public DbSet<Class> Class { get; set; }                
+        public DbSet<Student> Student { get; set; }
+        public DbSet<StudentAddress> StudentAddress { get; set; }
+        public DbSet<StudentPhone> StudentPhone { get; set; }        
         public DbSet<Country> Country { get; set; }
         public DbSet<State> State { get; set; }
         public DbSet<City> City { get; set; }
