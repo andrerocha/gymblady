@@ -84,7 +84,7 @@ namespace Business
             }
         }
 
-        public List<StudentAddress> GetAllStudentddresses(GetAllStudentAddressesRequest request)
+        public List<StudentAddress> GetAllStudentAddresses(GetAllStudentAddressesRequest request)
         {
             List<StudentAddress> addresses = null;
 

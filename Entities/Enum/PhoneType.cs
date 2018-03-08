@@ -1,6 +1,6 @@
 ﻿namespace Entities.Enum
 {
-    public enum PhoneType : byte
+    public enum PhoneType
     {
         Home = 1,
         Cellphone = 2,

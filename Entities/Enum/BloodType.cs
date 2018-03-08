@@ -1,6 +1,6 @@
 ﻿namespace Entities.Enum
 {
-    public enum BloodType : byte
+    public enum BloodType
     {
         PositiveAB = 1,
         NegativeAB = 2,
