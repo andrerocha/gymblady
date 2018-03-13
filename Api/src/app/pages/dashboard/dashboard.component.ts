@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'dashboard',
+  templateUrl: './dashboard.component.html'
 })
-export class AppComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   constructor(private _httpService: Http) { }
 

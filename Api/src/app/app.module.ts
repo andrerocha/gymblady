@@ -1,16 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AlertMessageComponent } from "./controls/alert-message/alert-message.component";
+import { AutoCompleteComponent } from "./controls/auto-complete/auto-complete.component";
+import { LoadingComponent } from "./controls/loading/loading.component";
+import { ModalComponent } from "./controls/modal/modal.component";
+import { PagerComponent } from "./controls/pager/pager.component";
+import { MenuComponent } from "./menu/menu.component";
+import { StudentsComponent } from "./pages/students/students.component";
+
+const appRoutes: Routes = [  
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'students', component: StudentsComponent },  
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  //{ path: '**', component: PageNotFoundComponent }
+];
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    AlertMessageComponent,
+    AutoCompleteComponent,
+    LoadingComponent,
+    ModalComponent,
+    PagerComponent,
+    MenuComponent,
+    StudentsComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     BrowserModule,
     FormsModule,
     HttpModule

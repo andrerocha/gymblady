@@ -1,0 +1,44 @@
+.menu {
+  border-radius: 0px;
+  border-width: 0px;
+  height: 100%;
+}
+
+.menu-header {
+  float: none;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+
+.menu ul {
+  float: none;
+  padding-left: 0;
+}
+
+.menu li {
+  float: none;
+  font-size: 15px;
+  margin: 15px 0 15px 0;
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.menu li a {
+  padding: 10px 0 16px 0;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+}
+
+.menu li a:hover, .menu li a:visited, .menu li a:link, .menu li a:active {
+  text-decoration: none;
+}
+
+.menu a {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}

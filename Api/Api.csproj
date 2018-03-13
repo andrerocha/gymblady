@@ -8,6 +8,9 @@
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\gymblady - FTP.pubxml" />
     <None Remove="Properties\PublishProfiles\gymblady - Web Deploy.pubxml" />
+    <None Remove="src\app\menu\menu.component.ts" />
+    <None Remove="src\app\pages\dashboard\dashboard.component.ts" />
+    <None Remove="src\app\pages\students\students.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +32,12 @@
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\menu\menu.component.ts" />
+    <TypeScriptCompile Include="src\app\pages\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\pages\students\students.component.ts" />
   </ItemGroup>
 
   <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">

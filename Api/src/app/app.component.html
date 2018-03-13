@@ -1,4 +1,36 @@
-<h1>Application says what?</h1>
-<ul>
-  <li *ngFor="let value of apiValues">{{value.name}}</li>
-</ul>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-2 logo'>
+      GYM BLADY
+    </div>
+    <div class='col-sm-10 header'>
+      <div class='col-sm-3 title'>
+        Ambiente
+      </div>
+      <div class='col-sm-8 text-right user'>
+        <div class="user">
+          teste@teste.com.br
+        </div>
+        <div class="logout">
+          <label class="link" (click)="Logout()">Sair</label>
+        </div>
+      </div>
+      <div class="col-sm-1">        
+        <i class="fa fa-user-circle fa-3x"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-sm-2'>
+      <menu></menu>
+    </div>
+    <div class="col-sm-10 body-content">
+      <div class='component-content'>
+        <alert-message #alertMessage></alert-message>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+<loading #loading></loading>
+<modal #modal></modal>

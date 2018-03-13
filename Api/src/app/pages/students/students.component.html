@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="card">
+    <h2>Alunos</h2>
+    <p>Lista de Alunos</p>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <input placeholder="Insira o termo da busca" class="form-control" [(ngModel)]="name">
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-primary" (click)="Search()">Buscar</button>
+      </div>
+      <div class="col-sm-8 text-right">
+        <button class="btn btn-success" (click)="RedirectNewUser()">Adicionar novo colunista</button>
+      </div>
+    </div>
+    <br />
+
+    <table class='table' *ngIf="students">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>          
+          <td>
+            <i class="fa fa-remove fa-lg link" (click)="Delete(student)"></i>
+            <i class="fa fa-eye fa-lg link" (click)="RedirectToEdit(student)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pager #pager></pager>
+  </div>
+</div>
