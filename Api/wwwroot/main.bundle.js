@@ -667,7 +667,7 @@ var DashboardComponent = /** @class */ (function () {
 /***/ "./src/app/pages/students/students.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <h2>Alunos</h2>\r\n    <p>Lista de Alunos</p>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n        <input placeholder=\"Insira o termo da busca\" class=\"form-control\" [(ngModel)]=\"name\">\r\n      </div>\r\n      <div class=\"col-sm-1\">\r\n        <button class=\"btn btn-primary\" (click)=\"Search()\">Buscar</button>\r\n      </div>\r\n      <div class=\"col-sm-8 text-right\">\r\n        <button class=\"btn btn-success\" (click)=\"RedirectNewUser()\">Adicionar novo colunista</button>\r\n      </div>\r\n    </div>\r\n    <br />\r\n\r\n    <table class='table' *ngIf=\"students\">\r\n      <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Email</th>\r\n          <th></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let student of students\">\r\n          <td>{{ student.name }}</td>\r\n          <td>{{ student.email }}</td>          \r\n          <td>\r\n            <i class=\"fa fa-remove fa-lg link\" (click)=\"Delete(student)\"></i>\r\n            <i class=\"fa fa-eye fa-lg link\" (click)=\"RedirectToEdit(student)\"></i>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <pager #pager></pager>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <h2>Alunos</h2>\r\n    <p>Lista de Alunos</p>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n        <input placeholder=\"Insira o termo da busca\" class=\"form-control\" [(ngModel)]=\"name\">\r\n      </div>\r\n      <div class=\"col-sm-1\">\r\n        <button class=\"btn btn-primary\" (click)=\"Search()\">Buscar</button>\r\n      </div>\r\n      <div class=\"col-sm-8 text-right\">\r\n        <button class=\"btn btn-success\" (click)=\"RedirectNewUser()\">Adicionar novo Aluno</button>\r\n      </div>\r\n    </div>\r\n    <br />\r\n\r\n    <table class='table' *ngIf=\"students\">\r\n      <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Email</th>\r\n          <th></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let student of students\">\r\n          <td>{{ student.name }}</td>\r\n          <td>{{ student.email }}</td>          \r\n          <td>\r\n            <i class=\"fa fa-remove fa-lg link\" (click)=\"Delete(student)\"></i>\r\n            <i class=\"fa fa-eye fa-lg link\" (click)=\"RedirectToEdit(student)\"></i>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <pager #pager></pager>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -692,12 +692,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var StudentsComponent = /** @class */ (function () {
     function StudentsComponent(_httpService) {
         this._httpService = _httpService;
-        this.sudents = [];
+        this.students = [];
     }
     StudentsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._httpService.get('/api/student/getallstudents').subscribe(function (values) {
-            _this.sudents = values.json();
+            _this.students = values.json();
         });
     };
     StudentsComponent = __decorate([

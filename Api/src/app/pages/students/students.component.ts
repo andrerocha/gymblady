@@ -9,13 +9,13 @@ export class StudentsComponent implements OnInit {
 
   constructor(private _httpService: Http) { }
 
-  sudents: any[] = [];
+  public students: any[] = [];
 
   ngOnInit() {
 
     this._httpService.get('/api/student/getallstudents').subscribe(values => {
 
-      this.sudents = values.json() as any[];
+      this.students = values.json() as any[];
     });
   }
 }
