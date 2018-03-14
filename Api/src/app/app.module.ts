@@ -14,6 +14,8 @@ import { PagerComponent } from "./controls/pager/pager.component";
 import { MenuComponent } from "./menu/menu.component";
 import { StudentsComponent } from "./pages/students/students.component";
 
+import { StudentService } from "./services/student.service";
+
 const appRoutes: Routes = [  
   { path: 'dashboard', component: DashboardComponent },
   { path: 'students', component: StudentsComponent },  
@@ -42,7 +44,9 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    StudentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

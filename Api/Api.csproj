@@ -9,6 +9,7 @@
     <None Remove="Properties\PublishProfiles\gymblady - FTP.pubxml" />
     <None Remove="Properties\PublishProfiles\gymblady - Web Deploy.pubxml" />
     <None Remove="src\app\menu\menu.component.ts" />
+    <None Remove="src\app\models\student.ts" />
     <None Remove="src\app\pages\dashboard\dashboard.component.ts" />
     <None Remove="src\app\pages\students\students.component.ts" />
   </ItemGroup>
@@ -36,8 +37,11 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\app\menu\menu.component.ts" />
+    <TypeScriptCompile Include="src\app\models\student.ts" />
     <TypeScriptCompile Include="src\app\pages\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="src\app\pages\students\students.component.ts" />
+    <TypeScriptCompile Include="src\app\services\base.service.ts" />
+    <TypeScriptCompile Include="src\app\services\student.service.ts" />
   </ItemGroup>
 
   <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">

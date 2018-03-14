@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
+import { Student } from "../../models/student";
+import { StudentService } from "../../services/student.service";
 
 @Component({
   selector: 'students',
@@ -7,15 +9,16 @@ import { Http } from "@angular/http";
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(private _httpService: Http) { }
+  constructor(private _httpService: Http,
+              private _studentService: StudentService) { }
 
-  public students: any[] = [];
+  public students: Student[] = [];
 
   ngOnInit() {
 
-    this._httpService.get('/api/student/getallstudents').subscribe(values => {
+    this._studentService.GetAllStudents().subscribe(values => {
 
-      this.students = values.json() as any[];
+      this.students = values.json() as Student[];
     });
   }
 }

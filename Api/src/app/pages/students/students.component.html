@@ -20,6 +20,7 @@
       <thead>
         <tr>
           <th>Nome</th>
+          <th>Sobrenome</th>
           <th>Email</th>
           <th></th>
         </tr>
@@ -27,6 +28,7 @@
       <tbody>
         <tr *ngFor="let student of students">
           <td>{{ student.name }}</td>
+          <td>{{ student.surname }}</td>
           <td>{{ student.email }}</td>          
           <td>
             <i class="fa fa-remove fa-lg link" (click)="Delete(student)"></i>
