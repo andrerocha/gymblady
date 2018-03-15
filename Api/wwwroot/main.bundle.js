@@ -27,7 +27,7 @@ module.exports = ".body-content {\r\n  background-color: #f3f5f7;\r\n  min-heigh
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container-fluid'>\r\n  <div class='row'>\r\n    <div class='col-sm-2 logo'>\r\n      GYM BLADY\r\n    </div>\r\n    <div class='col-sm-10 header'>\r\n      <div class='col-sm-3 title'>\r\n        Ambiente\r\n      </div>\r\n      <div class='col-sm-8 text-right user'>\r\n        <div class=\"user\">\r\n          teste@teste.com.br\r\n        </div>\r\n        <div class=\"logout\">\r\n          <label class=\"link\">Sair</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-1\">        \r\n        <i class=\"fa fa-user-circle fa-3x\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class='col-sm-2'>\r\n      <menu></menu>\r\n    </div>\r\n    <div class=\"col-sm-10 body-content\">\r\n      <div class='component-content'>\r\n        <alert-message #alertMessage></alert-message>\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<loading #loading></loading>\r\n<modal #modal></modal>\r\n"
+module.exports = "<div class='container-fluid'>\r\n  <div class='row'>\r\n    <div class='col-sm-2 logo'>\r\n      GYM BLADY\r\n    </div>\r\n    <div class='col-sm-10 header'>\r\n      <div class='col-sm-3 title'>\r\n        Ambiente\r\n      </div>\r\n      <div class='col-sm-12 text-right user'>\r\n        <div class=\"user\">\r\n          teste@teste.com.br\r\n        </div>\r\n        <div class=\"logout\">\r\n          <label class=\"link\">Sair</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-1\">        \r\n        <i class=\"fa fa-user-circle fa-3x\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class='col-sm-2'>\r\n      <menu></menu>\r\n    </div>\r\n    <div class=\"col-sm-10 body-content\">\r\n      <div class='component-content'>\r\n        <alert-message #alertMessage></alert-message>\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<loading #loading></loading>\r\n<modal #modal></modal>\r\n"
 
 /***/ }),
 
@@ -95,6 +95,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__menu_menu_component__ = __webpack_require__("./src/app/menu/menu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_students_students_component__ = __webpack_require__("./src/app/pages/students/students.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_student_service__ = __webpack_require__("./src/app/services/student.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_students_student_component__ = __webpack_require__("./src/app/pages/students/student.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -116,9 +117,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard_component__["a" /* DashboardComponent */] },
     { path: 'students', component: __WEBPACK_IMPORTED_MODULE_13__pages_students_students_component__["a" /* StudentsComponent */] },
+    { path: 'student', component: __WEBPACK_IMPORTED_MODULE_15__pages_students_student_component__["a" /* StudentComponent */] },
+    { path: 'student/:id', component: __WEBPACK_IMPORTED_MODULE_15__pages_students_student_component__["a" /* StudentComponent */] },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 var AppModule = /** @class */ (function () {
@@ -135,10 +139,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__controls_modal_modal_component__["a" /* ModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__controls_pager_pager_component__["a" /* PagerComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__menu_menu_component__["a" /* MenuComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_students_students_component__["a" /* StudentsComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__pages_students_students_component__["a" /* StudentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_students_student_component__["a" /* StudentComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 ),
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
@@ -609,9 +614,24 @@ var MenuComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/menu/menu.component.html"),
             styles: [__webpack_require__("./src/app/menu/menu.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], MenuComponent);
     return MenuComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/student.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Student; });
+var Student = /** @class */ (function () {
+    function Student() {
+    }
+    return Student;
 }());
 
 
@@ -621,7 +641,7 @@ var MenuComponent = /** @class */ (function () {
 /***/ "./src/app/pages/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "Dashboard\r\n"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <h2>Dashboard</h2>\r\n    <p>Dashboard</p>\r\n\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -668,21 +688,23 @@ var DashboardComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/students/students.component.html":
+/***/ "./src/app/pages/students/student.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <h2>Alunos</h2>\r\n    <p>Lista de Alunos</p>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n        <input placeholder=\"Insira o termo da busca\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"col-sm-1\">\r\n        <button class=\"btn btn-primary\">Buscar</button>\r\n      </div>\r\n      <div class=\"col-sm-8 text-right\">\r\n        <button class=\"btn btn-success\">Adicionar novo Aluno</button>\r\n      </div>\r\n    </div>\r\n    <br />\r\n\r\n    <table class='table' *ngIf=\"students\">\r\n      <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Sobrenome</th>\r\n          <th>Email</th>\r\n          <th></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let student of students\">\r\n          <td>{{ student.name }}</td>\r\n          <td>{{ student.surname }}</td>\r\n          <td>{{ student.email }}</td>          \r\n          <td>\r\n            <i class=\"fa fa-remove fa-lg link\" (click)=\"Delete(student)\"></i>\r\n            <i class=\"fa fa-eye fa-lg link\" (click)=\"RedirectToEdit(student)\"></i>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <pager #pager></pager>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12\">\r\n        <h2>Aluno</h2>\r\n        Novo Aluno\r\n      </div>\r\n    </div>\r\n    <br />\r\n    <form #form=\"ngForm\" (ngSubmit)=\"Save()\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtName\">Nome</label>\r\n          <input id=\"txtName\" class=\"form-control\" [(ngModel)]=\"student.Name\" required name=\"name\" #name=\"ngModel\">\r\n          <div [hidden]=\"name.valid || name.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtSurname\">Sobrenome</label>\r\n          <input id=\"txtSurname\" class=\"form-control\" [(ngModel)]=\"student.Surname\" required name=\"surname\" #surname=\"ngModel\">\r\n          <div [hidden]=\"surname.valid || surname.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <br />\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtBirthDate\">Data de Nascimento</label>\r\n          <input id=\"txtBirthDate\" class=\"form-control\" [(ngModel)]=\"student.BirthDate\" required name=\"birthDate\" #birthDate=\"ngModel\">\r\n          <div [hidden]=\"birthDate.valid || birthDate.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtEmail\">E-mail</label>\r\n          <input id=\"txtEmail\" class=\"form-control\" [(ngModel)]=\"student.Email\" required name=\"email\" #email=\"ngModel\">\r\n          <div [hidden]=\"email.valid || email.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <br />\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtStartDate\">Início</label>\r\n          <input id=\"txtStartDate\" class=\"form-control\" [(ngModel)]=\"student.StartDate\" required name=\"startDate\" #startDate=\"ngModel\">\r\n          <div [hidden]=\"startDate.valid || startDate.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <label for=\"txtBloodType\">Tipo Sanguíneo</label>\r\n          <input id=\"txtBloodType\" class=\"form-control\" [(ngModel)]=\"student.BloodType\" required name=\"bloodType\" #bloodType=\"ngModel\">\r\n          <div [hidden]=\"bloodType.valid || bloodType.pristine\" class=\"alert alert-danger\">\r\n            Campo obrigatório\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <br />    \r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n          <div class=\"col-sm-2 pull-right\">\r\n            <button type=\"submit\" class=\"btn btn-md btn-success btn-block\" [disabled]=\"!form.form.valid\">Salvar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <br />\r\n    </form>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "./src/app/pages/students/students.component.ts":
+/***/ "./src/app/pages/students/student.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_student_service__ = __webpack_require__("./src/app/services/student.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_student__ = __webpack_require__("./src/app/models/student.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_student_service__ = __webpack_require__("./src/app/services/student.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -695,10 +717,114 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+var StudentComponent = /** @class */ (function () {
+    function StudentComponent(_httpService, studentService, route, router) {
+        this._httpService = _httpService;
+        this.studentService = studentService;
+        this.route = route;
+        this.router = router;
+        this.student = new __WEBPACK_IMPORTED_MODULE_3__models_student__["a" /* Student */]();
+    }
+    StudentComponent.prototype.ngOnInit = function () {
+        this.GetUrlParams();
+        this.GetStudent();
+    };
+    StudentComponent.prototype.GetUrlParams = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            _this.idStudent = +params['id'];
+        });
+    };
+    StudentComponent.prototype.GetStudent = function () {
+        var _this = this;
+        if (this.idStudent && this.idStudent > 0) {
+            var errorMessage_1 = 'Ocorreu um erro ao carregar o aluno.';
+            this.studentService.GetById(this.idStudent).subscribe(function (result) {
+                _this.student = result.json();
+            }, function (error) {
+                alert(errorMessage_1);
+            }, function () { return null; });
+        }
+    };
+    StudentComponent.prototype.Save = function () {
+        var _this = this;
+        var errorMessage = 'Ocorreu um erro ao salvar o aluno.';
+        var successMessage = 'Aluno salvo com sucesso.';
+        if (this.idStudent && this.idStudent > 0) {
+            this.studentService.Update(this.student).subscribe(function (result) {
+                _this.student = result.json();
+            }, function (error) {
+                alert(errorMessage);
+            }, function () {
+                _this.RedirectToStudents();
+            });
+        }
+        else {
+            this.studentService.Add(this.student).subscribe(function (result) {
+                _this.student = result.json();
+            }, function (error) {
+                alert(errorMessage);
+            }, function () {
+                _this.RedirectToStudents();
+            });
+        }
+    };
+    StudentComponent.prototype.RedirectToStudents = function () {
+        this.router.navigateByUrl('/students');
+    };
+    StudentComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'student',
+            template: __webpack_require__("./src/app/pages/students/student.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_4__services_student_service__["a" /* StudentService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], StudentComponent);
+    return StudentComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/students/students.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <h2>Alunos</h2>\r\n    <p>Lista de Alunos</p>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n        <input placeholder=\"Insira o termo da busca\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"col-sm-1\">\r\n        <button class=\"btn btn-primary\">Buscar</button>\r\n      </div>\r\n      <div class=\"col-sm-8 text-right\">\r\n        <button class=\"btn btn-success\" [routerLink]=\"['/student']\">Adicionar novo Aluno</button>\r\n      </div>\r\n    </div>\r\n    <br />\r\n\r\n    <table class='table' *ngIf=\"students\">\r\n      <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Sobrenome</th>\r\n          <th>Email</th>\r\n          <th></th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let student of students\">\r\n          <td>{{ student.name }}</td>\r\n          <td>{{ student.surname }}</td>\r\n          <td>{{ student.email }}</td>          \r\n          <td>\r\n            <span class=\"ion-edit link\" title=\"Editar aluno\" (click)=\"RedirectToEdit(student)\"></span>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <pager #pager></pager>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/students/students.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_student_service__ = __webpack_require__("./src/app/services/student.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
 var StudentsComponent = /** @class */ (function () {
-    function StudentsComponent(_httpService, _studentService) {
+    function StudentsComponent(_httpService, _studentService, router) {
         this._httpService = _httpService;
         this._studentService = _studentService;
+        this.router = router;
         this.students = [];
     }
     StudentsComponent.prototype.ngOnInit = function () {
@@ -707,13 +833,20 @@ var StudentsComponent = /** @class */ (function () {
             _this.students = values.json();
         });
     };
+    StudentsComponent.prototype.RedirectToEdit = function (student) {
+        console.log(student);
+        if (student && student.idStudent > 0) {
+            this.router.navigateByUrl('/student/' + student.idStudent);
+        }
+    };
     StudentsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'students',
             template: __webpack_require__("./src/app/pages/students/students.component.html")
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_2__services_student_service__["a" /* StudentService */]])
+            __WEBPACK_IMPORTED_MODULE_3__services_student_service__["a" /* StudentService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], StudentsComponent);
     return StudentsComponent;
 }());
@@ -783,19 +916,19 @@ var StudentService = /** @class */ (function (_super) {
         return _this;
     }
     StudentService.prototype.GetAllStudents = function () {
-        return this.http.get(this.BaseUrl + '/student/GetallStudents');
+        return this.http.get(this.BaseUrl + '/Student/GetallStudents');
     };
     StudentService.prototype.GetById = function (id) {
-        return this.http.get(this.BaseUrl + '/student/GetById?id=' + id);
+        return this.http.get(this.BaseUrl + '/Student/GetStudentByIdStudent?idStudent=' + id);
     };
     StudentService.prototype.Add = function (student) {
-        return this.http.post(this.BaseUrl + '/student/add', student);
+        return this.http.post(this.BaseUrl + '/Student/AddStudent', student);
     };
     StudentService.prototype.Update = function (student) {
-        return this.http.put(this.BaseUrl + '/student/update', student);
+        return this.http.put(this.BaseUrl + '/Student/UpdateStudent', student);
     };
     StudentService.prototype.Delete = function (id) {
-        return this.http.delete(this.BaseUrl + '/student/delete?id=' + id);
+        return this.http.delete(this.BaseUrl + '/Student/DeleteStudent?idStudent=' + id);
     };
     StudentService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),

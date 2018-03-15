@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
 
 body {
   font-family: 'Roboto', sans-serif
@@ -30,13 +31,6 @@ body {
   border: gray;
   border-style: solid;
   border-width: thin;
-}
-
-.imageLogin {
-  max-width: 50px;
-  max-height: 50px;
-  width: auto;
-  height: auto;
 }
 
 .link:hover {

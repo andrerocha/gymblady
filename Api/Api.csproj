@@ -11,6 +11,7 @@
     <None Remove="src\app\menu\menu.component.ts" />
     <None Remove="src\app\models\student.ts" />
     <None Remove="src\app\pages\dashboard\dashboard.component.ts" />
+    <None Remove="src\app\pages\students\student.component.ts" />
     <None Remove="src\app\pages\students\students.component.ts" />
   </ItemGroup>
 
@@ -39,6 +40,7 @@
     <TypeScriptCompile Include="src\app\menu\menu.component.ts" />
     <TypeScriptCompile Include="src\app\models\student.ts" />
     <TypeScriptCompile Include="src\app\pages\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\pages\students\student.component.ts" />
     <TypeScriptCompile Include="src\app\pages\students\students.component.ts" />
     <TypeScriptCompile Include="src\app\services\base.service.ts" />
     <TypeScriptCompile Include="src\app\services\student.service.ts" />

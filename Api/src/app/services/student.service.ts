@@ -14,26 +14,26 @@ export class StudentService extends BaseService {
 
   GetAllStudents(): Observable<any> {
 
-    return this.http.get(this.BaseUrl + '/student/GetallStudents');
+    return this.http.get(this.BaseUrl + '/Student/GetallStudents');
   }
 
   GetById(id: number): Observable<any> {
 
-    return this.http.get(this.BaseUrl + '/student/GetById?id=' + id);
+    return this.http.get(this.BaseUrl + '/Student/GetStudentByIdStudent?idStudent=' + id);
   }
 
   Add(student: Student): Observable<any> {
 
-    return this.http.post(this.BaseUrl + '/student/add', student);
+    return this.http.post(this.BaseUrl + '/Student/AddStudent', student);
   }
 
   Update(student: Student): Observable<any> {
 
-    return this.http.put(this.BaseUrl + '/student/update', student);
+    return this.http.put(this.BaseUrl + '/Student/UpdateStudent', student);
   }
 
   Delete(id: number): Observable<any> {
 
-    return this.http.delete(this.BaseUrl + '/student/delete?id=' + id);
+    return this.http.delete(this.BaseUrl + '/Student/DeleteStudent?idStudent=' + id);
   }
 }

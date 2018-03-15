@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Aluno</h2>
+        Novo Aluno
+      </div>
+    </div>
+    <br />
+    <form #form="ngForm" (ngSubmit)="Save()">
+      <div class="row">
+        <div class="col-sm-3">
+          <label for="txtName">Nome</label>
+          <input id="txtName" class="form-control" [(ngModel)]="student.Name" required name="name" #name="ngModel">
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label for="txtSurname">Sobrenome</label>
+          <input id="txtSurname" class="form-control" [(ngModel)]="student.Surname" required name="surname" #surname="ngModel">
+          <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-3">
+          <label for="txtBirthDate">Data de Nascimento</label>
+          <input id="txtBirthDate" class="form-control" [(ngModel)]="student.BirthDate" required name="birthDate" #birthDate="ngModel">
+          <div [hidden]="birthDate.valid || birthDate.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label for="txtEmail">E-mail</label>
+          <input id="txtEmail" class="form-control" [(ngModel)]="student.Email" required name="email" #email="ngModel">
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-3">
+          <label for="txtStartDate">Início</label>
+          <input id="txtStartDate" class="form-control" [(ngModel)]="student.StartDate" required name="startDate" #startDate="ngModel">
+          <div [hidden]="startDate.valid || startDate.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label for="txtBloodType">Tipo Sanguíneo</label>
+          <input id="txtBloodType" class="form-control" [(ngModel)]="student.BloodType" required name="bloodType" #bloodType="ngModel">
+          <div [hidden]="bloodType.valid || bloodType.pristine" class="alert alert-danger">
+            Campo obrigatório
+          </div>
+        </div>
+      </div>
+      <br />    
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="col-sm-2 pull-right">
+            <button type="submit" class="btn btn-md btn-success btn-block" [disabled]="!form.form.valid">Salvar</button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>

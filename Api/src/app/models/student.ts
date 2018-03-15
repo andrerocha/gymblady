@@ -1,17 +1,17 @@
 export class Student {
 
-  IdStudent: number;
-  Name: string;
-  Surname: string;
-  BirthDate: Date;
-  Email: string;
-  StartDate: Date;
-  HasHealthProblem: boolean;
-  HelthProblemDescription: string;
-  UseDrugs: boolean;
-  DrugsDescription: string;
-  HasSurgery: boolean;
-  SurgeryDescription: string;
-  BloodType: number;
-  AcceptedTerms: boolean;
+  idStudent: number;
+  name: string;
+  surname: string;
+  birthDate: Date;
+  email: string;
+  startDate: Date;
+  hasHealthProblem: boolean;
+  helthProblemDescription: string;
+  useDrugs: boolean;
+  drugsDescription: string;
+  hasSurgery: boolean;
+  surgeryDescription: string;
+  bloodType: number;
+  acceptedTerms: boolean;
 }

@@ -15,10 +15,13 @@ import { MenuComponent } from "./menu/menu.component";
 import { StudentsComponent } from "./pages/students/students.component";
 
 import { StudentService } from "./services/student.service";
+import { StudentComponent } from "./pages/students/student.component";
 
 const appRoutes: Routes = [  
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'students', component: StudentsComponent },  
+  { path: 'dashboard', component: DashboardComponent },  
+  { path: 'students', component: StudentsComponent },
+  { path: 'student', component: StudentComponent },
+  { path: 'student/:id', component: StudentComponent }, 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   //{ path: '**', component: PageNotFoundComponent }
 ];
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
     ModalComponent,
     PagerComponent,
     MenuComponent,
-    StudentsComponent
+    StudentsComponent,
+    StudentComponent
   ],
   imports: [
     RouterModule.forRoot(
