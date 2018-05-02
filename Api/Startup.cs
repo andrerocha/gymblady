@@ -1,4 +1,4 @@
-﻿using DataAccess;
+using DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +20,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkMySql().AddDbContext<Context>(options => options.UseMySql(Configuration.GetConnectionString("MySqlConnectionString")));
+            services.AddEntityFrameworkMySql().AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
             services.AddMvc();            
         }
 
