@@ -1,0 +1,19 @@
+﻿<div class="modalComponent" [hidden]="!_show">
+    <div class="modal-dialog {{ _class }}" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">{{ _title }}</h3>
+                <button type="button" class="close" aria-label="Close" (click)="Close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{ _message }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" [hidden]="!_cancelMessage" (click)="Close()">{{_cancelMessage}}</button>
+                <button type="button" class="btn btn-primary" [hidden]="!_confirmMessage" (click)="Confirm()">{{_confirmMessage}}</button>                
+            </div>
+        </div>
+    </div>
+</div>

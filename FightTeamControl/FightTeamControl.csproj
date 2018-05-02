@@ -21,8 +21,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\models\student.ts" />
+    <None Remove="ClientApp\app\services\base.service.ts" />
+    <None Remove="ClientApp\app\services\student.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\models\student.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\student.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\app\components\controls\" />
+    <Folder Include="ClientApp\app\services\controls\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
