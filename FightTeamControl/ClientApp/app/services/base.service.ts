@@ -2,7 +2,7 @@
 
 export abstract class BaseService {
     
-    public _baseUrl: string = 'http://localhost:62790/api';
+    public _baseUrl: string = 'http://localhost:51442/api';
 
     get BaseUrl(): string {
 

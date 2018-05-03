@@ -14,32 +14,17 @@ export class StudentService extends BaseService {
         super();
     }
 
-    GetAll(): Observable<any> {
+    GetAllStudents(): Observable<any> {
 
-        let url = this.BaseUrl + '/Student/GetAll';        
+        let url = this.BaseUrl + '/Student/GetAllStudents';        
 
         return this.http.get(url);
     }
 
     GetById(id: number): Observable<any> {
 
-        return this.http.get(this.BaseUrl + '/Student/GetById?id=' + id);
-    }
-
-    GetByIdUser(idUser: number): Observable<any> {
-
-        return this.http.get(this.BaseUrl + '/Student/GetByIdUsuario?id=' + idUser);
-    }
-
-    GetByIdDriver(idDriver: number): Observable<any> {
-
-        return this.http.get(this.BaseUrl + '/Student/GetByIdMotorista?id=' + idDriver);
-    }
-
-    GetByIdCompany(idCompany: number): Observable<any> {
-
-        return this.http.get(this.BaseUrl + '/Student/GetByIdEmpresa?id=' + idCompany);
-    }
+        return this.http.get(this.BaseUrl + '/Student/GetStudentById?id=' + id);
+    }        
 
     Add(student: Student): Observable<any> {    
 

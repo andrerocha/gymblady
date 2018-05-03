@@ -1,5 +1,24 @@
 <div class='container-fluid'>
     <div class='row'>
+        <div class='col-sm-2 logo'>
+            GYM BLADY
+        </div>
+        <div class='col-sm-10 header'>
+            <div class='col-sm-11 text-right user'>
+                <div class="user">
+                    {{Email}}
+                </div>
+                <div class="logout">
+                    <label class="pointer" (click)="Logout()">Sair</label>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <img class="loginImage" [hidden]="!UrlImage || UrlImage == ''" [src]="UrlImage" />
+                <div [hidden]="UrlImage != ''"><i class="far fa-user fa-3x"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
         <div class='col-sm-2'>
             <nav-menu></nav-menu>
         </div>

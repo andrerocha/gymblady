@@ -1,1 +1,37 @@
-Students
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="col-sm-10">
+                <h3>Alunos</h3>
+                <p>Alunos</p>
+            </div>
+            <div class="col-sm-2">
+                <button (click)="RedirectToNewStudent()" class="btn btn-success">Novo Aluno</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [hidden]="students && students.length > 0" class="text-center"><td colspan="3">Nenhum registro foi encontrado.</td></tr>
+                    <tr *ngFor="let student of students">
+                        <td>{{student.name}}</td>
+                        <td>{{student.surname}}</td>
+                        <td>{{student.email}}</td>
+                        <td>
+                            <i class="far fa-edit pointer" (click)="RedirectToStudent(student)"></i>
+                            <i class="far fa-trash-alt pointer" (click)="DeleteStudent(student)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
