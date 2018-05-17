@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DataAccess.Migrations
 {
-    public partial class test : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +33,7 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AcceptedTerms = table.Column<bool>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    BloodType = table.Column<int>(nullable: false),
+                    BloodType = table.Column<byte>(nullable: false),
                     Created = table.Column<DateTime>(nullable: false),
                     DrugsDescription = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -102,7 +102,7 @@ namespace DataAccess.Migrations
                     IdStudent = table.Column<int>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: true),
                     Number = table.Column<string>(nullable: true),
-                    Type = table.Column<int>(nullable: false)
+                    Type = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -173,7 +173,7 @@ namespace DataAccess.Migrations
                     IdAcademy = table.Column<int>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: true),
                     Number = table.Column<string>(nullable: true),
-                    Type = table.Column<int>(nullable: false)
+                    Type = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
                 {

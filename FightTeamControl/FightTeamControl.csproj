@@ -21,8 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\models\common\key-value-pair.ts" />
     <None Remove="ClientApp\app\models\student.ts" />
+    <None Remove="ClientApp\app\models\studentAddress.ts" />
+    <None Remove="ClientApp\app\models\studentPhone.ts" />
     <None Remove="ClientApp\app\services\base.service.ts" />
+    <None Remove="ClientApp\app\services\core.service.ts" />
     <None Remove="ClientApp\app\services\student.service.ts" />
   </ItemGroup>
 
@@ -32,8 +36,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\models\common\key-value-pair.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\studentPhone.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\studentAddress.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\student.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\core.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\student.service.ts" />
   </ItemGroup>
 

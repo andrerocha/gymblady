@@ -1,0 +1,172 @@
+<div class="container-fluid">
+    <div class="card">
+        <form #form="ngForm" (ngSubmit)="Save()">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3>Aluno</h3>
+                    <p>Aluno</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="txtName">Nome</label>
+                    <input id="txtName" class="form-control" [(ngModel)]="student.name" required name="name" #txtName="ngModel">
+                    <div [hidden]="txtName.valid || txtName.pristine" class="alert alert-danger">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="txtSurname">Sobrenome</label>
+                    <input id="txtSurname" class="form-control" [(ngModel)]="student.surname" required name="surname" #txtSurname="ngModel">
+                    <div [hidden]="txtSurname.valid || txtSurname.pristine" class="alert alert-danger">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="txtEmail">E-mail</label>
+                    <input id="txtEmail" class="form-control" [(ngModel)]="student.email" required name="email" #txtEmail="ngModel">
+                    <div [hidden]="txtEmail.valid || txtEmail.pristine" class="alert alert-danger">
+                        Campo obrigatório
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="txtBirthDate">Data de Nascimento</label>
+                    <input type="date" id="txtBirthDate" class="form-control" [(ngModel)]="student.birthDate" required name="birthDate" #txtBirthDate="ngModel">
+                    <div [hidden]="txtBirthDate.valid || txtBirthDate.pristine" class="alert alert-danger">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="txtStartDate">Início</label>
+                    <input type="date" id="txtStartDate" class="form-control" [(ngModel)]="student.startDate" required name="startDate" #txtStartDate="ngModel">
+                    <div [hidden]="txtStartDate.valid || txtStartDate.pristine" class="alert alert-danger">
+                        Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="ddlBloodType">Tipo Sanguíneo</label>
+                    <select id="ddlBloodType" class="form-control" [(ngModel)]="student.bloodType" name="bloodType">
+                        <option value="0">Selecione</option>
+                        <option *ngFor="let item of bloodTypes" [ngValue]="item.key">{{item.value}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="ckAcceptedTerms">Aceita os Termos</label>
+                    <input type="checkbox" id="ckAcceptedTerms" [(ngModel)]="student.acceptedTerms" name="acceptedTerms">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="ckHasHealthProblem">Problema de Saúde</label>
+                    <input type="checkbox" id="ckHasHealthProblem" [(ngModel)]="student.hasHealthProblem" name="hasHealthProblem">
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" [disabled]="!student.hasHealthProblem" [(ngModel)]="student.helthProblemDescription" name="helthProblemDescription">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="ckuseDrugs">Usa Medicamento</label>
+                    <input type="checkbox" id="ckuseDrugs" [(ngModel)]="student.useDrugs" name="useDrugs">
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" [disabled]="!student.useDrugs" [(ngModel)]="student.drugsDescription" name="drugsDescription">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="ckHasSurgery">Tem Cirurgia</label>
+                    <input type="checkbox" id="ckHasSurgery" [(ngModel)]="student.hasSurgery" name="hasSurgery">
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" [disabled]="!student.hasSurgery" [(ngModel)]="student.surgeryDescription" name="surgeryDescription">
+                </div>
+            </div>
+            <br />
+            <div [hidden]="!idStudent">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4>Endereços</h4>
+                    </div>                    
+                    <div class="col-sm-2">
+                        <button [routerLink]="['/student']" class="btn btn-default">Novo Endereço</button>
+                    </div>
+                    <hr />
+                </div>
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [hidden]="studentAddresses && studentAddresses.length > 0" class="text-center"><td colspan="3">Nenhum registro foi encontrado.</td></tr>
+                            <tr *ngFor="let address of studentAddresses">
+                                <td>{{address.name}}</td>
+                                <td>{{address.surname}}</td>
+                                <td>{{address.email}}</td>
+                                <td>
+                                    <i class="far fa-edit pointer" (click)="RedirectToStudent(address)"></i>
+                                    <i class="far fa-trash-alt pointer" (click)="DeleteStudentConfirm(address)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div [hidden]="!idStudent">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4>Telefones</h4>
+                    </div>                    
+                    <div class="col-sm-2">
+                        <button [routerLink]="['/student']" class="btn btn-default">Novo Telefone</button>
+                    </div>
+                    <hr />
+                </div>
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [hidden]="studentPhones && studentPhones.length > 0" class="text-center"><td colspan="3">Nenhum registro foi encontrado.</td></tr>
+                            <tr *ngFor="let phone of studentPhones">
+                                <td>{{phone.name}}</td>
+                                <td>{{phone.surname}}</td>
+                                <td>{{phone.email}}</td>
+                                <td>
+                                    <i class="far fa-edit pointer" (click)="RedirectToStudent(phone)"></i>
+                                    <i class="far fa-trash-alt pointer" (click)="DeleteStudentConfirm(phone)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-2 pull-right">
+                        <button type="submit" class="btn btn-md btn-success btn-block" [disabled]="!form.form.valid">Salvar</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </form>
+    </div>
+</div>

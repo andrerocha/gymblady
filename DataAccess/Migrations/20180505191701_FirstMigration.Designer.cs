@@ -12,14 +12,14 @@ using System;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20180502133946_test")]
-    partial class test
+    [Migration("20180505191701_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Entities.Academy", b =>
@@ -95,7 +95,7 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Number");
 
-                    b.Property<int>("Type");
+                    b.Property<byte>("Type");
 
                     b.HasKey("IdAcademyPhone");
 
@@ -195,7 +195,7 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int>("BloodType");
+                    b.Property<byte>("BloodType");
 
                     b.Property<DateTime>("Created");
 
@@ -277,7 +277,7 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Number");
 
-                    b.Property<int>("Type");
+                    b.Property<byte>("Type");
 
                     b.HasKey("IdStudentPhone");
 

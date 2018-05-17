@@ -7,6 +7,8 @@ import { AuthenticationService } from "./services/authentication.service";
 import { LoadingService } from "./services/controls/loading.service";
 import { ModalService } from "./services/controls/modalservice";
 import { StudentService } from "./services/student.service";
+import { LoginRouteGuard } from './components/route/login-route-guard';
+import { CoreService } from './services/core.service';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -19,7 +21,9 @@ import { StudentService } from "./services/student.service";
         AuthenticationService,
         LoadingService,
         ModalService,
-        StudentService        
+        StudentService,
+        LoginRouteGuard,
+        CoreService
     ]
 })
 export class AppModule {

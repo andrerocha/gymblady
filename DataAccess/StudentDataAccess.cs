@@ -12,12 +12,12 @@ namespace DataAccess
 
         public IQueryable<Student> GetAll()
         {
-            return this.Context.Student;
+            return this.Context.Student;            
         }
 
         public IQueryable<Student> GetById(int id)
         {
-            return this.Context.Student.Where(a => a.IdStudent == id);
+            return this.Context.Student.Where(a => a.IdStudent == id);            
         }
 
         public Student Add(Student student)

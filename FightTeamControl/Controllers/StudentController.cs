@@ -2,6 +2,8 @@
 using Business.Messaging.Student;
 using DataAccess;
 using Entities;
+using Entities.Enum;
+using FightTeamControl.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -14,7 +16,7 @@ namespace FightTeamControl.Controllers
         [HttpGet]
         [Route("api/Student/GetAllStudents")]
         public List<Student> GetAllStudents()
-        {
+        {            
             var business = StudentBusiness.Instance;
             var request = new GetAllStudentsRequest(this.Context);
             var students = business.GetAllStudents(request);

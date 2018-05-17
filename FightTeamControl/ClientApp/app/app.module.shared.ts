@@ -15,6 +15,8 @@ import { AutoCompleteComponent } from "./components/controls/auto-complete/auto-
 import { LoadingComponent } from "./components/controls/loading/loading.component";
 import { ModalComponent } from "./components/controls/modal/modal.component";
 import { PagerComponent } from "./components/controls/pager/pager.component";
+import { StudentComponent } from './components/pages/students/student.component';
+import { LoginRouteGuard } from './components/route/login-route-guard';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,7 @@ import { PagerComponent } from "./components/controls/pager/pager.component";
         MasterComponent,
         DashboardComponent,
         StudentsComponent,
+        StudentComponent,
         AlertMessageComponent,
         AutoCompleteComponent,
         LoadingComponent,
@@ -37,8 +40,10 @@ import { PagerComponent } from "./components/controls/pager/pager.component";
         RouterModule.forRoot([
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'login', component: LoginComponent },
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'students', component: StudentsComponent },
+            { path: 'dashboard', component: DashboardComponent, canActivate: [LoginRouteGuard] },
+            { path: 'students', component: StudentsComponent, canActivate: [LoginRouteGuard] },
+            { path: 'student', component: StudentComponent, canActivate: [LoginRouteGuard] },
+            { path: 'student/:idStudent', component: StudentComponent, canActivate: [LoginRouteGuard] },
             { path: '**', redirectTo: 'dashboard' }
         ])
     ]
